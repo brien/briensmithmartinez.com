@@ -7,15 +7,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 	<head>
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	  ga('create', 'UA-65915468-1', 'auto');
-	  ga('send', 'pageview');
-	</script>
+		  ga('create', 'UA-65915468-1', 'auto');
+		  ga('send', 'pageview');
+		</script>
+
+		<script>
+		/**
+		* Function that tracks a click on an outbound link in Analytics
+		* This function takes a valid URL string as an argument, and uses that URL string
+		* as the event label. Setting the transport method to 'beacon' lets the hit be sent
+		* using 'navigator.sendBeacon' in browser that support it.
+		*/
+		var trackOutboundLink = function(url) {
+		   ga('send', 'event', 'outbound', 'click', url, {
+		     'transport': 'beacon',
+		     'hitCallback': function(){document.location = url;}
+		   });
+		}
+		</script>
 
 		<title>Brien Smith Martínez</title>
 		<link href="css/style.css" rel="stylesheet" type="text/css"  media="all" />
@@ -37,7 +52,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="wrap">
 			<!--start-logo-->
 			<div class="logo">
-				<a href="#">portfolio</a>
+				<a href="#">Brien Smith Martinez</a>
 			</div>
 			<!--End-logo-->
 			<!--start-top-nav-->
@@ -58,7 +73,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="grid1" id="me">
 			<a href="#"><img src="images/brien_gafasdesol_thumb.jpg" title="Brien" /></a>
 			<h3>Hi, I'm Brien.</h3>
-			<p>I'm a software development freelancer living in Madrid, Spain. My favorite kinds of clients are small teams still in their early stages. I like finding creative solutions to difficult problems. Sometimes that means developing software, but not always. In other words, a good plan is better than a good app. As a native English and Spanish speaker, I also do language based work such as translating, teaching, and proofreading.<a href="#">Say hi on twitter</a>. </p>
+			<p>I'm a software development freelancer living in Madrid, Spain. My favorite kinds of clients are small teams still in their early stages. I like finding creative solutions to difficult problems. Sometimes that means developing software, but not always. In other words, a good plan is better than a good app. As a native English and Spanish speaker, I also do language based work such as translating, teaching, and proofreading.<a href="#contact">Say hi on twitter</a>. </p>
 		</div>
 		<div class="grid2" id="skills">
 			<h3>Skill set</h3>
@@ -98,7 +113,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<li><a href="#"><img src="images/icon3.png" titl="Icon-Name" /></a></li>
 						<li><a href="#"><img src="images/icon4.png" titl="Icon-Name" /></a></li>
 					</ul>
-					<a class="button" href="http://www.degruyter.com/view/j/jisys.2013.22.issue-4/jisys-2013-0028/jisys-2013-0028.xml">View Article</a>
+					<a class="button" href="http://www.degruyter.com/view/j/jisys.2013.22.issue-4/jisys-2013-0028/jisys-2013-0028.xml" onclick="trackOutboundLink('http://www.degruyter.com/view/j/jisys.2013.22.issue-4/jisys-2013-0028/jisys-2013-0028.xml'); return false;">View Article</a>
 				</div>
 				<div class="grid3-right">
 					<a href="#"><img src="images/thesis-screenshot.png" title="thesis screenshot" /></a>
@@ -116,7 +131,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<li><a href="#"><img src="images/icon3.png" titl="Icon-Name" /></a></li>
 						<li><a href="#"><img src="images/icon4.png" titl="Icon-Name" /></a></li>
 					</ul>
-					<a class="button" href="https://github.com/brien/tankgame">View Project</a>
+					<a class="button" href="https://github.com/brien/tankgame" onclick="trackOutboundLink('https://github.com/brien/tankgame'); return false;">View Project</a>
 				</div>
 				<div class="grid3-right">
 					<a href="#"><img src="images/tankgame-ss1.png" title="Tankgame screenshot" /></a>
@@ -126,7 +141,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>	
 		<div class="twiiter-box">
 			<a href="#"><img src="images/twitt.png" title="twitter-count" /></a>
-			<p>Contact me on <a href="https://twitter.com/brien">twitter</a> via <a href="https://twitter.com/brien">@brien.</a></p>
+			<p>Contact me on <a href="https://twitter.com/brien" onclick="trackOutboundLink('https://twitter.com/brien'); return false;">twitter</a> via <a href="https://twitter.com/brien" onclick="trackOutboundLink('https://twitter.com/brien'); return false;">@brien.</a></p>
 		</div>
 		<!--
 		<div class="contact" id="contact">
@@ -144,13 +159,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<h3>SAY HELLO</h3>
 			<p>Here I am!</p>
 			<ul>
-				<li><a href="https://www.facebook.com/bsmartinez"><img src="images/facebook.png" title="facebook" /></a></li>
+				<li><a href="https://www.facebook.com/bsmartinez" onclick="trackOutboundLink('https://www.facebook.com/bsmartinez'); return false;"><img src="images/facebook.png" title="facebook" /></a></li>
 				<li><a href="#"><img src="images/rss.png" title="Rss" /></a></li>
-				<li><a href="https://plus.google.com/u/0/+BrienSmithMartinez/posts"><img src="images/googlepluse.png" title="GooglePlus" /></a></li>
+				<li><a href="https://plus.google.com/u/0/+BrienSmithMartinez/posts" onclick="trackOutboundLink('https://plus.google.com/u/0/+BrienSmithMartinez/posts'); return false;"><img src="images/googlepluse.png" title="GooglePlus" /></a></li>
 			</ul>
 		</div>
 		<div class="footer">
-			<p>Design by <a href="http://w3layouts.com/">w3layouts</a></p>
+			<p>Design based on <a href="http://w3layouts.com/" onclick="trackOutboundLink('http://w3layouts.com/'); return false;">w3layouts</a></p>
 		</div>
 	</div>
 	</body>
